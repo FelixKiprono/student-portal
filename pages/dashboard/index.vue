@@ -90,6 +90,7 @@ components:
 
     logout()
     {
+      console.log(this.currentUser);
        localStorage.removeItem("user");
        this.$router.push('/');
     },
@@ -130,9 +131,8 @@ components:
           this.component = 'settings';
          break;
          case 'logout':
-           this.$router.push("/");
-
-
+           localStorage.removeItem("user");
+           this.$router.push('/');
          break;
 
 
@@ -149,13 +149,7 @@ components:
     {
       this.theme = checked ? "light" : "dark";
     },
-    logout()
-    {
-       localStorage.removeItem('IsLogged');
-       localStorage.removeItem('account');
-       this.$router.push("/");
 
-    }
   },
   created()
   {
@@ -174,8 +168,7 @@ components:
    }
   },
   mounted(){
-  this.type = localStorage.getItem('type');
-    console.log(this.type);
+    this.type = localStorage.getItem('type');
   }
 };
 </script>

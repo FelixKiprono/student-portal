@@ -79,11 +79,8 @@
               {{ tag.toUpperCase() }}
             </a-tag>
           </span>
-          <span slot="Document" slot-scope="text, record">
-            <a-button type="primary" size="small">View Documents</a-button>
-        </span>
-              <span slot="filelink" slot-scope="text"><a :href="text" target="_new"> Open Link/File </a></span>
 
+        <span slot="filelink" slot-scope="text,record"><a :href="text" target="_new"> Open Link/File </a></span>
         <span slot="status" slot-scope="text, record">
             <a-popconfirm
                     title="Are you sure delete this document?"
@@ -142,6 +139,7 @@ export default {
       selected_course:'',
       course:'',
       courses:[],
+      selected_year:'',
       fileList: [
 
       ],
@@ -235,6 +233,14 @@ export default {
           key: "filelink",
            scopedSlots: { customRender: 'filelink' },
         },
+         {
+          title: "Description",
+          dataIndex: "description",
+          key: "description",
+          scopedSlots: { customRender: 'description' },
+
+        },
+
         {
           title: "Status",
           key: "status",
@@ -254,7 +260,8 @@ export default {
               class: doc.data().class,
               year: doc.data().year,
               course: doc.data().course,
-              linkurl: doc.data().linkurl,
+              filelink: doc.data().filelink,
+              description: doc.data().linkurl,
               status: doc.data().status,
             });
           });

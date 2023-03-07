@@ -90,6 +90,7 @@ export default{
 
         },
 
+
       ];
 
       this.data = [];
@@ -153,6 +154,14 @@ export default{
           scopedSlots: { customRender: 'filelink' },
 
         },
+         {
+          title: "Description",
+          dataIndex: "description",
+          key: "description",
+          scopedSlots: { customRender: 'description' },
+
+        },
+
 
       ];
       this.data = [];
